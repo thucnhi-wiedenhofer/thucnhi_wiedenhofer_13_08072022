@@ -2,6 +2,7 @@ import React from 'react';
 import './header.css';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/img/argentBankLogo.png';
+import Navigation from '../Navigation/Navigation';
 
 function Header() {
   return (
@@ -15,6 +16,7 @@ function Header() {
           />
           <h1 className="sr-only">Argent Bank</h1>
         </NavLink>
+        <Navigation />
       </nav>
     </>
   );
