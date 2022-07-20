@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../slices/authSlice';
+import { login } from '../../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../Alert/Alert';
 import regex from '../../Utils/regex';
 import './form.css';
 
 const Form = () => {
-  const remember = localStorage.getItem('email');
+  //const rememberMe = localStorage.getItem('email');
   const [alert, setAlert] = useState({});
   const [user, setUser] = useState({
     email: '',

@@ -5,8 +5,8 @@ import './styles/main.css';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './slices/authSlice';
-import accountReducer from './slices/accountSlice';
+import authReducer from './store/authSlice';
+import accountReducer from './store/accountSlice';
 
 const store = configureStore({
   reducer: {

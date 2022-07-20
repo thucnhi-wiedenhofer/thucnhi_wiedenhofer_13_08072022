@@ -12,7 +12,7 @@ export const login = createAsyncThunk(
         password: values.password,
       });
 
-      /* if "remenber me" checckbox  is checked email is recorded in localStorage */
+      /* if "remenber me" checckbox  is checked, email is recorded in localStorage */
 
       if (values.checked) {
         localStorage.setItem('email', values.email);
@@ -38,11 +38,25 @@ const authSlice = createSlice({
 
   initialState: {
     token: '',
-    loginStatus: '',
-    loginError: '',
+    status: '',
+    message: '',
     isLogged: false,
   },
-  reducers: {},
+  reducers: {
+    /* Logout  remove token and isLogged in sessionStorage and modify navigation component */
+    logout: (state, action) => {
+      sessionStorage.removeItem('token');
+      sessionStorage.removeItem('isLogged');
+
+      return {
+        ...state,
+        token: '',
+        status: '',
+        message: '',
+        isLogged: false,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state, action) => {
       return { ...state, loginStatus: 'pending' };
@@ -53,8 +67,8 @@ const authSlice = createSlice({
         return {
           ...state,
           token: action.payload,
-          loginStatus: 'success',
-          loginError: '',
+          status: 'success',
+          message: action.payload.message,
           isLogged: true,
         };
       } else return state;
@@ -63,11 +77,12 @@ const authSlice = createSlice({
       return {
         ...state,
         token: '',
-        loginStatus: 'rejected',
-        loginError: action.payload.message,
+        status: 'rejected',
+        message: action.payload.message,
       };
     });
   },
 });
 
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;
