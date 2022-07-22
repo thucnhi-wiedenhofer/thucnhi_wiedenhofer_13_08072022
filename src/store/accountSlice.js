@@ -45,6 +45,11 @@ const accountSlice = createSlice({
       state.editName = true;
       return state;
     },
+
+    reset: (state) => {
+      state = { firstName: '', lastName: '', editName: false };
+      return state;
+    },
   },
 
   extraReducers: (builder) => {
@@ -70,14 +75,15 @@ const accountSlice = createSlice({
       return { ...state, updateStatus: 'pending' };
     });
     builder.addCase(update.fulfilled, (state, action) => {
-      if (action && action.payload === 200)
+      if (action && action.payload === 200) {
         return (
           {
             ...state,
             updateStatus: 'success',
           },
-          window.location.reload()
+          window.location.reload(true)
         );
+      }
     });
     builder.addCase(update.rejected, (state, action) => {
       return {
@@ -88,5 +94,5 @@ const accountSlice = createSlice({
   },
 });
 
-export const { editName } = accountSlice.actions;
+export const { editName, reset } = accountSlice.actions;
 export default accountSlice.reducer;

@@ -37,12 +37,19 @@ const authSlice = createSlice({
   name: 'auth',
 
   initialState: {
-    token: '',
+    token: sessionStorage.getItem('token'),
     status: '',
     message: '',
     isLogged: false,
   },
   reducers: {
+    remember: (state) => {
+      const rememberMe = localStorage.getItem('email');
+      if (rememberMe) {
+        state.email = rememberMe;
+        return state;
+      }
+    },
     /* Logout  remove token and isLogged in sessionStorage and modify navigation component */
     logout: (state, action) => {
       sessionStorage.removeItem('token');

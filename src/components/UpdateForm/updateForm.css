@@ -1,0 +1,20 @@
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+#update .input-wrapper {
+  margin: 10px;
+  width: 200px;
+}
+
+.update-button {
+  border-color: #00bc77;
+  background-color: #fff;
+  color: #00bc77;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  width: 100px;
+}

@@ -29,6 +29,7 @@ function UpdateForm() {
     }
     setAlert({});
     if (auth.token) {
+      console.log(user);
       dispatch(update(user));
     }
   };
@@ -39,33 +40,39 @@ function UpdateForm() {
   };
 
   return (
-    <form>
-      {msg && <Alert alert={alert} />}
-      <div className="input-wrapper">
-        <input
-          type="text"
-          value={user.firstName}
-          onChange={(e) =>
-            setUser({ ...user, firstName: e.target.value.trim() })
-          }
-        />
-      </div>
-      <div className="input-wrapper">
-        <input
-          type="text"
-          value={user.lastName}
-          onChange={(e) =>
-            setUser({ ...user, lastName: e.target.value.trim() })
-          }
-        />
-      </div>
-      <button className="green-button" onClick={handleSubmit}>
-        Save
-      </button>
-      <button className="green-button" onClick={cancel}>
-        Cancel
-      </button>
-    </form>
+    <>
+      <h1 className="header">Welcome back</h1>
+      <form id="update">
+        {msg && <Alert alert={alert} />}
+        <div className="row">
+          <div className="input-wrapper">
+            <input
+              type="text"
+              value={user.firstName}
+              onChange={(e) =>
+                setUser({ ...user, firstName: e.target.value.trim() })
+              }
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              type="text"
+              value={user.lastName}
+              onChange={(e) =>
+                setUser({ ...user, lastName: e.target.value.trim() })
+              }
+            />
+          </div>
+        </div>
+
+        <button className="update-button" onClick={handleSubmit}>
+          Save
+        </button>
+        <button className="update-button" onClick={cancel}>
+          Cancel
+        </button>
+      </form>
+    </>
   );
 }
 

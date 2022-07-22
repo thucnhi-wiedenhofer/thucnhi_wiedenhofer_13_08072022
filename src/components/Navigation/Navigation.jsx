@@ -2,12 +2,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../../store/authSlice';
+import { reset } from '../../store/accountSlice';
 
 function Navigation() {
   const dispatch = useDispatch();
   const account = useSelector((state) => state.account);
   const logOut = () => {
     dispatch(logout());
+    dispatch(reset());
   };
 
   if (sessionStorage.getItem('isLogged') && sessionStorage.getItem('token')) {
