@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../Heading/heading.css';
+import { editName } from '../../store/accountSlice';
 
 function Heading() {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ function Heading() {
         <br />
         <span>{`${account.firstName + ' ' + account.lastName + '!'}`}</span>
       </h1>
-      <button className="edit-button">Edit Name</button>
+      <button onClick={dispatch(editName())} className="edit-button">
+        Edit Name
+      </button>
     </div>
   );
 }
