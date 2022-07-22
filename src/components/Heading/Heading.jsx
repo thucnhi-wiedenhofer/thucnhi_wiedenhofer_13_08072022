@@ -14,7 +14,7 @@ function Heading() {
         <br />
         <span>{`${account.firstName + ' ' + account.lastName + '!'}`}</span>
       </h1>
-      <button onClick={dispatch(editName())} className="edit-button">
+      <button onClick={() => dispatch(editName())} className="edit-button">
         Edit Name
       </button>
     </div>

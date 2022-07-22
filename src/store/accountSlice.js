@@ -64,13 +64,12 @@ const accountSlice = createSlice({
       return {
         ...state,
         accountStatus: 'rejected',
-        message: action.payload.message,
       };
     });
     builder.addCase(update.pending, (state, action) => {
       return { ...state, updateStatus: 'pending' };
     });
-    builder.addCase(update.fullfilled, (state, action) => {
+    builder.addCase(update.fulfilled, (state, action) => {
       if (action && action.payload === 200)
         return (
           {
@@ -84,7 +83,6 @@ const accountSlice = createSlice({
       return {
         ...state,
         updateStatus: 'rejected',
-        message: action.payload.message,
       };
     });
   },

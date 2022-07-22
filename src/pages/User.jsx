@@ -20,7 +20,6 @@ function User() {
     return (
       <main className="main bg-dark">
         {editName ? <UpdateForm /> : <Heading />}
-        <Heading />
         <h2 className="sr-only">Accounts</h2>
         <Account />
       </main>
