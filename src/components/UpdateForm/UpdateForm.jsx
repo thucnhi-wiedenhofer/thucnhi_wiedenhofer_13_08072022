@@ -20,6 +20,7 @@ function UpdateForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //check no empty fields:
     if ([user.firstName, user.lastName].includes('')) {
       setAlert({
         msg: 'All fields are required',
@@ -28,13 +29,13 @@ function UpdateForm() {
       return;
     }
     setAlert({});
+    //if user's connected, dispatch update action:
     if (auth.token) {
-      console.log(user);
       dispatch(update(user));
     }
   };
   const { msg } = alert;
-
+  // if user choose to cancel update, redirect to user page (still connected)
   const cancel = () => {
     navigate('/User');
   };

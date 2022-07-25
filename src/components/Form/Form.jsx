@@ -19,6 +19,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
+  // if user's connected, direct user to User page
   useEffect(() => {
     if (auth.token) {
       navigate('/User');
@@ -27,6 +28,7 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //check no empty fields:
     if ([user.email, user.password].includes('')) {
       setAlert({
         msg: 'All fields are required',
@@ -34,6 +36,7 @@ const Form = () => {
       });
       return;
     }
+    //check email is valid:
     if (!regex(user.email)) {
       setAlert({
         msg: 'Not valid email format',
@@ -42,6 +45,7 @@ const Form = () => {
       return;
     }
     setAlert({});
+    //dispath login action:
     dispatch(login(user));
   };
 
@@ -77,9 +81,7 @@ const Form = () => {
       <button className="sign-in-button">
         {auth.loginStatus === 'pending' ? 'Submitting...' : 'Sign In'}
       </button>
-      {auth.loginStatus === 'rejected' ? (
-        <p className="error-msg">{auth.loginError}</p>
-      ) : null}
+      {auth.status === '400' ? <p className="error">{auth.message}</p> : null}
     </form>
   );
 };

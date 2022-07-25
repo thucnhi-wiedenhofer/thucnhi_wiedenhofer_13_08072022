@@ -33,3 +33,9 @@
   background-color: #00bc77;
   color: #fff;
 }
+
+.error {
+  font-size: 18px;
+  font-weight: 500;
+  color: red;
+}

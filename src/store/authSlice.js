@@ -84,7 +84,7 @@ const authSlice = createSlice({
       return {
         ...state,
         token: '',
-        status: 'rejected',
+        status: '400',
         message: action.payload.message,
       };
     });
