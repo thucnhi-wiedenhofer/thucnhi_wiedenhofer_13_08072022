@@ -1,4 +1,4 @@
-[![forthebadge](https://forthebadge.com/images/badges/cc-0.svg)](https://forthebadge.com) [![forthebadge](./src/assets/images/react-forthebadge.svg)](https://create-react-app.dev/)
+[![forthebadge](https://forthebadge.com/images/badges/cc-0.svg)](https://forthebadge.com) [![forthebadge](./src/assets/img/react-forthebadge.svg)](https://create-react-app.dev/)
 [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://forthebadge.com)
 
 # Argent Bank: User Authentification to see transactions
