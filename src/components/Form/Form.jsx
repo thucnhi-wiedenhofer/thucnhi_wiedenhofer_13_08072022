@@ -7,10 +7,9 @@ import regex from '../../Utils/regex';
 import './form.css';
 
 const Form = () => {
-  //const rememberMe = localStorage.getItem('email');
   const [alert, setAlert] = useState({});
   const [user, setUser] = useState({
-    email: '',
+    email: localStorage.getItem('email'),
     password: '',
     checked: '',
   });
