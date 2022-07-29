@@ -91,8 +91,8 @@ paths:
       description: API for updating a user profile
       parameters:
         - in: header
-          type: string
           name: Authorization
+          type: string
           description: Attach Bearer JWT token
           required: true
         - in: body
@@ -112,14 +112,14 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-/user/{accountId}/transactions:
+  /user/{accountId}/transactions:
     get:
       security:
         - Bearer: []
       tags:
         - Transactions Module
       summary: User account transactions
-      description: get user account transactions
+      description: fetch user account transactions
       parameters:
         - in: header
           name: Authorization
@@ -130,7 +130,7 @@ paths:
           name: accountId
           type: integer
           required: true
-          description: User account id to get
+          description: User account ID to get
       produces:
         - application/json
       responses:
@@ -152,7 +152,7 @@ paths:
       tags:
         - Transactions Module
       summary: Transaction details
-      description: See the transaction in details
+      description: See the  transaction in details
       parameters:
         - in: header
           name: Authorization
@@ -163,7 +163,7 @@ paths:
           name: transactionId
           type: integer
           required: true
-          description: Get id of the transaction 
+          description: Get ID of the transaction 
       produces:
         - application/json
       responses:
@@ -181,8 +181,8 @@ paths:
         - Bearer: []
       tags:
         - Transactions Module
-      summary: Transaction details
-      description: Add a note to the transaction details
+      summary: Add a note 
+      description: Add A Note to his transaction details
       parameters:
         - in: header
           name: Authorization
@@ -190,10 +190,10 @@ paths:
           required: true
           type: string
         - in: path
-          name: transaction_id
+          name: transactionId
           type: integer
           required: true
-          description: id of the transaction
+          description: Get iD of the transaction
         - in: body
           name: Add a note
           description: Add a note in transaction details
@@ -204,7 +204,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: Note in transaction details created successfully
+          description: details transactions  created successfully
           schema:
             $ref: '#/definitions/DetailsTransactionResponse'
         '400':
@@ -216,8 +216,8 @@ paths:
         - Bearer: []
       tags:
         - Transactions Module
-      summary: Transaction details
-      description: Update a category to the transaction details
+      summary: Edit a Category
+      description: Edit a Category to the Transaction Details
       parameters:
         - in: header
           name: Authorization
@@ -225,21 +225,21 @@ paths:
           required: true
           type: string
         - in: path
-          name: transaction_id
+          name: transactionId
           type: integer
           required: true
-          description: Numeric ID of the transaction
+          description: Get ID of the transaction
         - in: body
-          name: See and update category
-          description: update a category in transaction details
+          name: See, Edit A Note Or Category
+          description: edit a category in transaction details
           required: true
           schema:
-            $ref: '#/definitions/UpdateDetails'
+            $ref: '#/definitions/AddDetails'
       produces:
         - application/json
       responses:
         '200':
-          description: transactions details updated successfully
+          description: details transactions  updated successfully
           schema:
             $ref: '#/definitions/DetailsTransactionResponse'
         '400':
@@ -251,14 +251,14 @@ paths:
         - Bearer: []
       tags:
         - Transactions Module
-      summary: Delete a note 
-      description: User delete a note to the transaction details
+      summary: Delete a Note
+      description: User delete a note to his transaction details
       parameters:
         - in: path
           name: transactionId
           type: integer
           required: true
-          description: transaction id to delete details
+          description: transaction ID to delete details
       produces:
         - application/json
       responses:
@@ -354,4 +354,10 @@ definitions:
         type: number
       id:
         type: integer
-  
+  AddDetails:
+    type: object
+    properties:
+      category:
+        type: string
+      notes:
+        type: string
