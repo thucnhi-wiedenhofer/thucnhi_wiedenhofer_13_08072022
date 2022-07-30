@@ -20,7 +20,7 @@ export const login = createAsyncThunk(
         localStorage.removeItem('email');
       }
 
-      /* isLogged is used for Navigation component */
+      /* isLogged is used for Navigation component to know user is logged or not */
 
       sessionStorage.setItem('token', data.body.token);
       sessionStorage.setItem('isLogged', true);
