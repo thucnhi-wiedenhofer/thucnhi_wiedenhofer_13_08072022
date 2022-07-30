@@ -9,7 +9,6 @@ import './form.css';
 const Form = () => {
   const [alert, setAlert] = useState({});
   const [user, setUser] = useState({
-    //get email in local storage if user checked remember me
     email: localStorage.getItem('email'),
     password: '',
     checked: '',
@@ -78,7 +77,6 @@ const Form = () => {
         />
         <label htmlFor="remember-me">Remember me</label>
       </div>
-      {/* Display button sign in log out or submitting and message error if password no valid */}
       <button className="sign-in-button">
         {auth.loginStatus === 'pending' ? 'Submitting...' : 'Sign In'}
       </button>

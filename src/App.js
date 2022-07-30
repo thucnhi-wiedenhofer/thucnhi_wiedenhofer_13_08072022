@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
-import SignIn from './pages/LogIn';
-import User from './pages/Profile';
+import SignIn from './pages/SignIn';
+import User from './pages/User';
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/LogIn" element={<SignIn />} />
-        <Route path="/Profile" element={<User />} />
+        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/User" element={<User />} />
       </Routes>
       <Footer />
     </BrowserRouter>
