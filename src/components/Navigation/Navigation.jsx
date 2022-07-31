@@ -29,7 +29,7 @@ function Navigation() {
     // Navigation if user is not connected:
     return (
       <div>
-        <NavLink className="main-nav-item" to="./SignIn">
+        <NavLink className="main-nav-item" to="./LogIn">
           <i className="fa fa-user-circle"></i>
           Sign In
         </NavLink>
