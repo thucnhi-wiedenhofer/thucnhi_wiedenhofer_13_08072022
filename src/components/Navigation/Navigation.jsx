@@ -12,6 +12,7 @@ function Navigation() {
     dispatch(reset());
   };
 
+  // Navigation if user is connected:
   if (sessionStorage.getItem('isLogged') && sessionStorage.getItem('token')) {
     return (
       <div>
@@ -26,6 +27,7 @@ function Navigation() {
       </div>
     );
   } else {
+    // Navigation if user is not connected:
     return (
       <div>
         <NavLink className="main-nav-item" to="./SignIn">

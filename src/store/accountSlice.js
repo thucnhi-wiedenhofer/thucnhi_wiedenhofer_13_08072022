@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const url = process.env.REACT_APP_API_URL;
 
+//Function to check if user is connected before direct user on profile page
 export const getUser = createAsyncThunk('account/getUser', async (token) => {
   let response = await axios({
     method: 'post',
@@ -13,6 +14,7 @@ export const getUser = createAsyncThunk('account/getUser', async (token) => {
   return { body: response.data.body, status: response.status };
 });
 
+// Function to update lastname/firstname when click editName button
 export const update = createAsyncThunk('account/update', async (data) => {
   let response = await axios({
     method: 'put',

@@ -13,6 +13,7 @@ function User() {
   const editName = account.editName;
   const dispatch = useDispatch();
 
+  //User navigate on this page if only is connected(token in header), display user informations
   useEffect(() => {
     dispatch(getUser(token));
   }, [token, dispatch]);
