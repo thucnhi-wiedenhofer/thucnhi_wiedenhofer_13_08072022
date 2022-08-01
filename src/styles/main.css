@@ -291,3 +291,10 @@ body {
     width: 200px;
   }
 }
+
+@media (max-width: 413px) {
+  .main-nav-logo-image {
+    max-width: 100%;
+    width: 170px;
+  }
+}
